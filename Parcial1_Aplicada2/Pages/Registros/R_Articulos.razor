@@ -52,7 +52,7 @@
                 @*Valor de Inventario*@
                 <div class="form-group">
                     <label>Valor de Inventario</label>
-                    <InputNumber @bind-Value="articulos.ValorInventario" class="form-control" readonly="true"/>
+                    <InputNumber @bind-Value="articulos.ValorInventario" class="form-control" readonly="true" @onfocusout="Calcular"/>
                     <ValidationMessage For="@(() => articulos.ValorInventario)"/>
                 </div>
             </form>
@@ -95,7 +95,6 @@
         articulos = new Articulos();
     }
 
-
     private void Buscar()
     {
         if (articulos.ArticuloId > 0)
@@ -109,12 +108,15 @@
         }
     }
 
+    private void Calcular()
+    {
+        //calculo del valor inventario
+        articulos.ValorInventario = articulos.Existencia * articulos.Costo;
+    }
+
     public void Guardar()
     {
         bool guardo;
-
-        //calculo del valor inventario
-        articulos.ValorInventario = articulos.Existencia * articulos.Costo;
 
         guardo = ArticulosBLL.Guardar(articulos);
 
