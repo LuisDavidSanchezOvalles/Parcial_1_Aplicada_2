@@ -22,7 +22,7 @@ namespace Parcial1_Aplicada2.Models
         public decimal Costo { get; set; }
 
         [Required(ErrorMessage = "No debe de estar Vacío el campo 'Valor de Inventario'")]
-        public int ValorInventario { get; set; }
+        public decimal ValorInventario { get; set; }
 
         public Articulos()
         {
@@ -33,7 +33,7 @@ namespace Parcial1_Aplicada2.Models
             ValorInventario = 0;
         }
 
-        public Articulos(int articuloId, string descripcion, int existencia, decimal costo, int valorInventario)
+        public Articulos(int articuloId, string descripcion, int existencia, decimal costo, decimal valorInventario)
         {
             ArticuloId = articuloId;
             Descripcion = descripcion;
