@@ -12,7 +12,7 @@ namespace Parcial1_Aplicada2.DAL
         public DbSet<Articulos> Articulos { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite(@"Data Source = C:\Users\luisd\OneDrive\Escritorio\Universidad\Programacion Aplicada 2\Base_de_Datos_de_Blazor\Parcial1DB\Parcial1.db");
+            optionsBuilder.UseSqlite(@"Data Source = Data\Parcial1.db");
         }
     }
 }
